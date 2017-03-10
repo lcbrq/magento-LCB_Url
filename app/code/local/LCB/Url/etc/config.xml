@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <LCB_Url>
+            <version>0.1.0</version>
+        </LCB_Url>
+    </modules>
+    <global>
+        <helpers>
+            <lcb_url>
+                <class>LCB_Url_Helper</class>
+            </lcb_url>
+        </helpers>
+        <models>
+            <lcb_url>
+                <class>LCB_Url_Model</class>
+            </lcb_url>
+            <core>
+                <rewrite>
+                    <url_rewrite_request>LCB_Url_Model_Core_Url_Rewrite_Request</url_rewrite_request>
+                </rewrite>
+            </core>
+        </models>
+    </global>
+</config> 
