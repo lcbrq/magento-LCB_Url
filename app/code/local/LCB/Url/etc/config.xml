@@ -22,4 +22,14 @@
             </core>
         </models>
     </global>
-</config> 
+    <default>
+        <web>
+            <routers>
+                <lcb_url>
+                    <area>frontend</area>
+                    <class>LCB_Url_Controller_Router</class>
+                </lcb_url>
+            </routers>
+        </web>
+    </default>
+</config>
