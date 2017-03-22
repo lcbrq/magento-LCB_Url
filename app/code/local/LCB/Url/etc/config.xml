@@ -18,6 +18,7 @@
             <core>
                 <rewrite>
                     <url_rewrite_request>LCB_Url_Model_Core_Url_Rewrite_Request</url_rewrite_request>
+                    <url>LCB_Url_Model_Core_Url</url>
                 </rewrite>
             </core>
         </models>
