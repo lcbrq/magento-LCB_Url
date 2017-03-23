@@ -3,20 +3,6 @@
 class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Standard {
 
     /**
-     * Init custom routing
-     * 
-     * @return Zend_Controller_Router_Rewrite
-     */
-    public function init()
-    {
-        if (file_exists(Mage::getBaseDir() . DS . 'app' . DS . 'etc' . DS . 'routes.xml')) {
-            $router = new Zend_Controller_Router_Rewrite();
-            $router->addConfig(new Zend_Config_Xml(Mage::getBaseDir() . DS . 'app' . DS . 'etc' . DS . 'routes.xml'));
-            return $router;
-        }
-    }
-
-    /**
      * @param Zend_Controller_Request_Http $request
      * 
      * @return boolean
@@ -24,7 +10,7 @@ class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Stand
     public function match(Zend_Controller_Request_Http $request)
     {
 
-        $router = $this->init();
+        $router = Mage::helper('lcb_url')->getRouter();
 
         if (!$router) {
             return false;

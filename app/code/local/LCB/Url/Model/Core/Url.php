@@ -1,27 +1,15 @@
-<?php 
+<?php
 
-if (Mage::helper('core')->isModuleEnabled('Mana_Seo')) {
+class LCB_Url_Model_Core_Url extends Mage_Core_Model_Url {
 
-    abstract class LCB_Url_Model_Core_Url_Abstract extends Mana_Seo_Rewrite_Url {
-        
-    }
-
-} else {
-
-    abstract class LCB_Url_Model_Core_Url_Abstract extends Mage_Core_Model_Url {
-        
-    }
-
-}
-
-class LCB_Url_Model_Core_Url extends LCB_Url_Model_Core_Url_Abstract{
-
-    public function getUrl($routePath = null, $routeParams = null)
+    public function getRoutePath($routeParams = array())
     {
-        if ($routePath == 'checkout/cart') {
-            $routePath = 'winkelwagen';
+        $routePath = parent::getRoutePath($routeParams);
+        $customPath = Mage::helper('lcb_url')->matchRoute($routePath);
+        if ($customPath) {
+            return $customPath;
         }
-
-        return parent::getUrl($routePath, $routeParams);
+        return $routePath;
     }
+
 }
