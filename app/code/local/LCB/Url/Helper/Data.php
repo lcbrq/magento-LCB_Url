@@ -63,4 +63,18 @@ class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract {
         return false;
     }
 
+    /**
+     * Get last url
+     * @author Jigsaw Marcin Gierus<martin@lcbrq.com>
+     * @return string 
+     */
+    public function getLastUrl(){
+        $url = Mage::app()->getRequest()->getServer('HTTP_REFERER');
+        if ((strpos($url, Mage::app()->getStore()->getBaseUrl()) !== 0)&& (strpos($url, Mage::app()->getStore()->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, true)) !== 0)) {
+            $url = Mage::app()->getStore()->getBaseUrl();
+        }
+
+        return $url;
+    }
+
 }
