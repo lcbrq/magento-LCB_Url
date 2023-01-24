@@ -1,7 +1,7 @@
 <?php
 
-class LCB_Url_Model_Core_Url extends Mage_Core_Model_Url {
-
+class LCB_Url_Model_Core_Url extends Mage_Core_Model_Url
+{
     public function getRoutePath($routeParams = array())
     {
         $routePath = parent::getRoutePath($routeParams);
@@ -11,5 +11,4 @@ class LCB_Url_Model_Core_Url extends Mage_Core_Model_Url {
         }
         return $routePath;
     }
-
 }

@@ -1,10 +1,10 @@
 <?php
 
-class LCB_Url_Model_Core_Url_Rewrite_Request extends Mage_Core_Model_Url_Rewrite_Request {
-
+class LCB_Url_Model_Core_Url_Rewrite_Request extends Mage_Core_Model_Url_Rewrite_Request
+{
     /**
      * Fix for gclid issue
-     * 
+     *
      * @see http://stackoverflow.com/questions/26629722/magento-category-redirect-cuts-off-the-querystring-of-an-url
      * @return LCB_Url_Model_Core_Url_Rewrite_Request
      */
@@ -27,7 +27,6 @@ class LCB_Url_Model_Core_Url_Rewrite_Request extends Mage_Core_Model_Url_Rewrite
         }
 
         if ($this->_rewrite->hasOption('R') || $isPermanentRedirectOption) {
-
             $queryString = $this->_getQueryString();
             if ($queryString) {
                 $targetUrl .= '?' . $queryString;
@@ -41,5 +40,4 @@ class LCB_Url_Model_Core_Url_Rewrite_Request extends Mage_Core_Model_Url_Rewrite
 
         return $this;
     }
-
 }

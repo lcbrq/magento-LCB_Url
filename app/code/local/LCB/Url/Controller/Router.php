@@ -1,15 +1,14 @@
 <?php
 
-class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Standard {
-
+class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Standard
+{
     /**
      * @param Zend_Controller_Request_Http $request
-     * 
+     *
      * @return boolean
      */
     public function match(Zend_Controller_Request_Http $request)
     {
-
         $router = Mage::helper('lcb_url')->getRouter();
 
         if (!$router) {
@@ -32,5 +31,4 @@ class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Stand
 
         return false;
     }
-
 }
