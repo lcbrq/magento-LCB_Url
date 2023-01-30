@@ -54,7 +54,7 @@ class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract
             $path = trim($routePath, '/');
             foreach ($config as $route => $data) {
                 if ($path === $data->get('name')) {
-                    return $data->get('route');
+                    return $data->get('route') . DS;
                 }
             }
         }

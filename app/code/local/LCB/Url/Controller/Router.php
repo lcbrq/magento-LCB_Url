@@ -23,7 +23,7 @@ class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Stand
                 $params = $route->getDefaults();
                 $module = $params['module'];
                 $controller = (isset($params['controller'])) ? $params['controller'] : "index";
-                $action = (isset($params['action'])) ? $params['controller'] : "index";
+                $action = (isset($params['action'])) ? $params['action'] : "index";
                 $request->setModuleName($module)->setControllerName($controller)->setActionName($action);
                 return true;
             }
