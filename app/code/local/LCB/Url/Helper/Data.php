@@ -34,6 +34,12 @@ class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         if ($config = $this->getConfig()) {
+            $store = Mage::app()->getStore()->getCode();
+            if ($config->get($store)) {
+                $config = $config->get($store);
+            } elseif ($config->get('default')) {
+                $config = $config->get('default');
+            }
             $router = new Zend_Controller_Router_Rewrite();
             $router->addConfig($config);
             return $this->router = $router;
@@ -52,6 +58,13 @@ class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract
     {
         if ($config = $this->getConfig()) {
             $path = trim($routePath, '/');
+            $store = Mage::app()->getStore()->getCode();
+            if ($config->get($store)) {
+                $config = $config->get($store);
+            } elseif ($config->get('default')) {
+                $config = $config->get('default');
+            }
+
             foreach ($config as $route => $data) {
                 if ($path === $data->get('name')) {
                     return $data->get('route') . DS;
