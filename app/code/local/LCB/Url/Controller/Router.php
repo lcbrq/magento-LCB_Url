@@ -27,7 +27,11 @@ class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Stand
                 $request->setModuleName($module)->setControllerName($controller)->setActionName($action);
 
                 if (!empty($config['params'])) {
-                    $request->setParams($config['params']);
+                    foreach ($config['params'] as $key => $value) {
+                        if (!$request->getParam($key)) {
+                            $request->setParam($key, $value);
+                        }
+                    }
                 }
 
                 return true;
