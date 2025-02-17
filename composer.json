@@ -1,0 +1,10 @@
+{
+    "name": "lcbrq/openmage-url",
+    "version": "0.3.0",
+    "license": ["MIT"],
+    "type": "magento-module",
+    "description": "This module allows to set friendly urls on any route.",
+    "extra": {
+        "magento-root-dir": "test/"
+    }
+}
