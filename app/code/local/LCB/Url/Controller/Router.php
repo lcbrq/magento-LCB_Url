@@ -20,11 +20,16 @@ class LCB_Url_Controller_Router extends Mage_Core_Controller_Varien_Router_Stand
 
         foreach ($routes as $route) {
             if ($route->match($path)) {
-                $params = $route->getDefaults();
-                $module = $params['module'];
-                $controller = (isset($params['controller'])) ? $params['controller'] : "index";
-                $action = (isset($params['action'])) ? $params['action'] : "index";
+                $config = $route->getDefaults();
+                $module = $config['module'];
+                $controller = (isset($config['controller'])) ? $config['controller'] : "index";
+                $action = (isset($config['action'])) ? $config['action'] : "index";
                 $request->setModuleName($module)->setControllerName($controller)->setActionName($action);
+
+                if (!empty($config['params'])) {
+                    $request->setParams($config['params']);
+                }
+
                 return true;
             }
         }
