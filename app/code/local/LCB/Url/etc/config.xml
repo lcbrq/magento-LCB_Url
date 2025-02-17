@@ -2,7 +2,7 @@
 <config>
     <modules>
         <LCB_Url>
-            <version>0.4.0</version>
+            <version>0.4.1</version>
         </LCB_Url>
     </modules>
     <global>
