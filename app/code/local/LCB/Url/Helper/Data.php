@@ -2,12 +2,21 @@
 
 class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    /**
+     * @var Zend_Controller_Router_Rewrite
+     */
     protected $router;
 
+    /**
+     *
+     * @var Zend_Config_Xml
+     */
     protected $config;
 
     /**
      * Get custom routing config
+     *
+     * @return Zend_Config_Xml|false
      */
     public function getConfig()
     {
@@ -83,7 +92,7 @@ class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract
     public function getLastUrl()
     {
         $url = Mage::app()->getRequest()->getServer('HTTP_REFERER');
-        if ((strpos($url, Mage::app()->getStore()->getBaseUrl()) !== 0)&& (strpos($url, Mage::app()->getStore()->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, true)) !== 0)) {
+        if ((strpos($url, Mage::app()->getStore()->getBaseUrl()) !== 0) && (strpos($url, Mage::app()->getStore()->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, true)) !== 0)) {
             $url = Mage::app()->getStore()->getBaseUrl();
         }
 
