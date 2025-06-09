@@ -2,7 +2,7 @@
 <config>
     <modules>
         <LCB_Url>
-            <version>0.4.1</version>
+            <version>0.5.0</version>
         </LCB_Url>
     </modules>
     <global>
@@ -23,6 +23,18 @@
             </core>
         </models>
     </global>
+    <frontend>
+        <events>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <lcb_url_controller_action_layout_generate_blocks_after>
+                        <class>lcb_url/observer</class>
+                        <method>modifyRobotsMeta</method>
+                    </lcb_url_controller_action_layout_generate_blocks_after>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+        </events>
+    </frontend>
     <default>
         <web>
             <routers>

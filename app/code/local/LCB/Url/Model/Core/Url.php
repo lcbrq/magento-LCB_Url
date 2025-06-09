@@ -10,6 +10,7 @@ class LCB_Url_Model_Core_Url extends Mage_Core_Model_Url
     {
         $routePath = parent::getRoutePath($routeParams);
         $customPath = Mage::helper('lcb_url')->matchRoute($routePath);
+
         if ($customPath) {
             return $customPath;
         }

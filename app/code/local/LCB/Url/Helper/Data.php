@@ -8,10 +8,14 @@ class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract
     protected $router;
 
     /**
-     *
      * @var Zend_Config_Xml
      */
     protected $config;
+
+    /**
+     * @var string
+     */
+    private $storeCode = null;
 
     /**
      * Get custom routing config
@@ -66,10 +70,15 @@ class LCB_Url_Helper_Data extends Mage_Core_Helper_Abstract
     public function matchRoute($routePath)
     {
         if ($config = $this->getConfig()) {
+
+            if (!$this->storeCode) {
+                $this->storeCode = Mage::app()->getStore()->getCode();
+            }
+
             $path = trim($routePath, '/');
-            $store = Mage::app()->getStore()->getCode();
-            if ($config->get($store)) {
-                $config = $config->get($store);
+            $storeCode = $this->storeCode;
+            if ($config->get($storeCode)) {
+                $config = $config->get($storeCode);
             } elseif ($config->get('default')) {
                 $config = $config->get('default');
             }
