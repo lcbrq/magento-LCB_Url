@@ -2,7 +2,7 @@
 <config>
     <modules>
         <LCB_Url>
-            <version>0.5.0</version>
+            <version>0.6.0</version>
         </LCB_Url>
     </modules>
     <global>
@@ -25,6 +25,14 @@
     </global>
     <frontend>
         <events>
+            <controller_action_predispatch>
+                <observers>
+                    <lcb_url_controller_action_predispatch>
+                        <class>lcb_url/observer</class>
+                        <method>redirectToNewRoute</method>
+                    </lcb_url_controller_action_predispatch>
+                </observers>
+            </controller_action_predispatch>
             <controller_action_layout_generate_blocks_after>
                 <observers>
                     <lcb_url_controller_action_layout_generate_blocks_after>
